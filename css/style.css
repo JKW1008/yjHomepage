@@ -2,14 +2,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
 }
-/* 공통 부분 */
-.wrapper {
-  max-width: 1200px;
-  /* border: 1px solid red; */
-  margin: 0 auto;
-}
+
 li {
   list-style: none;
   display: inline-block;
@@ -17,16 +12,18 @@ li {
 a {
   text-decoration: none;
 }
+/* 공통 부분 */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 /* 헤더 */
 header {
-  background: #ddd;
+  background: white;
 }
 
-header #header_top {
-  border: 1px solid black;
-}
 header #header_top #header_gnb ul {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* width: 500px; */
   text-align: right;
   padding-right: 5%;
@@ -40,19 +37,19 @@ header #header_top #header_gnb ul li a {
 }
 
 header #header_bottom {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding-top: 20px;
 }
 header #header_bottom .wrapper {
   display: flex;
   justify-content: space-between;
 }
-header #header_bottom #title {
+/* header #header_bottom #title {
   border: 1px solid black;
 }
 header #header_bottom #header_lnb {
   border: 1px solid black;
-}
+} */
 header #header_bottom #header_lnb ul li {
   padding: 10px 30px;
 }
@@ -69,9 +66,9 @@ header #header_bottom #phone {
 }
 
 /* 콘텐츠 */
-/* #contents {
-  background: #aaa;
-} */
+#contents {
+  background: #ddd;
+}
 
 #contents #mainimage_wrapper {
   max-width: 1800px;
@@ -80,7 +77,9 @@ header #header_bottom #phone {
 
 /* 탭메뉴 */
 /* 첫번째 탭 _ 모집중인 과정 */
-
+#contents #class_wrapper #class_tab {
+  padding: 20px 0;
+}
 #contents #class_wrapper .wrapper input {
   display: none;
 }
@@ -180,14 +179,89 @@ header #header_bottom #phone {
   text-align: center;
 }
 #class_tab .class_tab_item img {
-  width: 24%s;
+  width: 24.6%;
 }
 
 #contents #edu_wrapper {
-  border: 1px solid blue;
-  /* background: white; */
+  background: white;
+}
+#contents #edu_wrapper .wrapper input {
+  display: none;
+}
+#contents #edu_wrapper .wrapper input ~ div {
+  display: none;
+}
+#contents
+  #edu_wrapper
+  .wrapper
+  input:nth-of-type(1):checked
+  ~ div:nth-of-type(1) {
+  display: block;
+}
+#contents
+  #edu_wrapper
+  .wrapper
+  input:nth-of-type(2):checked
+  ~ div:nth-of-type(2) {
+  display: block;
+}
+
+#contents #edu_wrapper #class_tab {
+  padding: 20px 0;
+}
+#contents #edu_wrapper #class_tab section label {
+  /* 크기 및 글자 위치 지정 */
+  display: block;
+  float: left;
+  width: 600px;
+  height: 50px;
+  border: 1px solid gray;
+  background: white;
+  text-align: center;
+  line-height: 50px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+#contents
+  #edu_wrapper
+  #class_tab
+  input:nth-child(1):checked
+  ~ section
+  label:nth-child(1) {
+  border-bottom: 3px solid #0d5fb6;
+  color: #0d5fb6;
+}
+#contents
+  #edu_wrapper
+  #class_tab
+  input:nth-child(2):checked
+  ~ section
+  label:nth-child(2) {
+  border-bottom: 3px solid #0d5fb6;
+  color: #0d5fb6;
 }
 /* 푸터 */
 footer {
   background: #555;
+  color: #ddd;
+  padding-top: 24px;
+}
+#footerBigText {
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #bbb;
+  margin-bottom: 8px;
+}
+#footerBigText ul li {
+  margin-right: 12px;
+}
+#footerSmallText {
+  font-size: 10pt;
+  line-height: 1.5;
+}
+footer a {
+  color: white;
+}
+#footerSns {
+  padding-top: 12px;
 }
