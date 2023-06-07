@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+body {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+main {
+  height: 100%;
+  padding: 400px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin-top: 100px;
+}
+.login-wrapper {
+  width: 30%;
+  height: 100%;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-wrapper > h2 {
+  font-size: 24px;
+  color: #111;
+  margin-bottom: 20px;
+}
+#login-form > input {
+  width: 100%;
+  height: 48px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+}
+#login-form > input::placeholder {
+  color: #d2d2d2;
+}
+#login-form input[type="button"] {
+  color: #fff;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #111;
+  margin: 20px 0;
+}
+#login-form > input[type="checkbox"] {
+  display: none;
+}
+#login-form > label {
+  color: #999999;
+}
+#naver_id_login {
+  width: 100%;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-image: url("../images/naverbtn/btnD_완성형.png");
+  background-size: cover;
+  background-position: center;
+}

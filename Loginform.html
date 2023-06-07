@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/Login_style.css" />
+    <title>대구 국비지원 무료교육 영진직업전문학교</title>
+    <script
+      type="text/javascript"
+      src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+      charset="utf-8"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.11.3.min.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div id="header_top">
+        <nav id="header_gnb">
+          <ul>
+            <li><a href="#">학생관리</a></li>
+            <li><a href="#">NCS평가</a></li>
+            <li><a href="#">시험응시</a></li>
+            <li><a href="#">정보수정</a></li>
+            <li><a href="#">회원탈퇴</a></li>
+            <li><a href="#">로그아웃</a></li>
+            <li><a href="#">사이트맵</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="header_bottom">
+        <div class="wrapper">
+          <div id="toggle">
+            <img
+              src="./images/toggle.png"
+              alt="영진직업전문학교 토글"
+              width="40px"
+            />
+          </div>
+          <div id="title">
+            <a href="http://znqptkzp.dothome.co.kr/yjHompage/main.html"
+              ><img
+                src="./images/yj_log.png"
+                alt="영진직업전문학교 로고"
+                style="cursor: pointer"
+            /></a>
+          </div>
+          <nav id="header_lnb">
+            <ul>
+              <li><a href="#">모집과정</a></li>
+              <li><a href="#">입학상담</a></li>
+              <li><a href="#">과정소개</a></li>
+              <li><a href="#">취업센터</a></li>
+              <li><a href="#">커뮤니티</a></li>
+              <li><a href="./sub.html">학교소개</a></li>
+            </ul>
+          </nav>
+          <div id="phone">
+            <img src="./images/main_tel.png" alt="전화 이미지" width="40px" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="login-wrapper">
+        <h2>로그인</h2>
+        <form method="post" action="서버의url" id="login-form">
+          <input type="text" name="userName" placeholder="이메일" />
+          <input type="password" name="userPassword" placeholder="비밀번호" />
+          <label for="remember-check">
+            <input type="checkbox" id="remember-check" />아이디 저장하기
+          </label>
+          <a href="index.html">
+            <input type="button" value="로그인" />
+          </a>
+          <a href="javascript:kakaoLogin();" id="kakaobtn"
+            ><img src="./images/kakao_login.png" width="300px"
+          /></a>
+          <div id="naver_id_login"></div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <div class="wrapper">
+        <div id="footerBigText">
+          <ul>
+            <li><a href="#">개인정보보호정책</a></li>
+            <li><a href="#">메일주소무단수집거부</a></li>
+          </ul>
+        </div>
+        <div id="footerSmallText">
+          <p>
+            회사명 : 영진직업전문학교 대표자 : 곽승호, 차영숙 📨 Tel :
+            053-983-8877 Fax : 053-722-2423 개인정보보호책임자 : 이동석 📨 Tel :
+            053-983-8877 사업자번호 : 502-95-07029
+          </p>
+          <p>
+            701-835 대구광역시 동구 화랑로 525(용계동), 조경실습장 : 대구 동구
+            도동 806-21
+          </p>
+          <p>
+            copyright Ⓒ 대구국비지원 무료교욱센터 영진직업전문학교. All Right
+            Reserved.
+          </p>
+        </div>
+        <div id="footerSns">
+          <img src="./images/footer_sns01.png" alt="" width="30px" />
+          <img src="./images/footer_sns02.png" alt="" width="30px" />
+          <img src="./images/footer_sns03.png" alt="" width="30px" />
+          <img src="./images/footer_sns04.png" alt="" width="30px" />
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      //JavaScript 키 : 56d51771a4a9d45bce2747686afe4f96
+      window.Kakao.init("2975eed1ac3f6c9af2d1ec5ba7a1b85b"); // API Key 입력
+
+      function kakaoLogin() {
+        // 함수 선언
+        window.Kakao.Auth.login({
+          // 카카오 연동 로그인을 위한 인증, 로그인 될 때 실행됨
+          scope: "profile_nickname, account_email, gender", // 가져올 카카오 로그인 정보 중 동의항목 ID 설정
+          success: function (authobj) {
+            console.log(authobj); // 받아온 오브젝트 데이터를 콘솔로 출력해보기
+            window.Kakao.API.request({
+              // 로그인 된 상태에서 유저의 로그인 정보(이메일, 닉네임 등) 값을 요청해서 받아오기
+              url: "/v2/user/me", //로그인 한 사용자의 정보가 있는 url 지정
+              success: (res) => {
+                const kakao_account = res.kakao_account; // account 정보 가져오기
+                console.log(kakao_account);
+              },
+            });
+          },
+        });
+      }
+    </script>
+    <script type="text/javascript">
+      var naver_id_login = new naver_id_login(
+        "Lkqxbn6PcPAVUdVPSrmu",
+        "http://znqptkzp.dothome.co.kr/yjHompage/naver_callback.html"
+      );
+      var state = naver_id_login.getUniqState();
+      naver_id_login.setButton("white", 2, 40);
+      naver_id_login.setDomain(
+        "http://znqptkzp.dothome.co.kr/yjHompage/Loginform.html"
+      );
+      naver_id_login.setState(state);
+      naver_id_login.setPopup();
+      naver_id_login.init_naver_id_login();
+    </script>
+  </body>
+</html>
