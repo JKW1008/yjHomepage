@@ -77,10 +77,11 @@ header #header_bottom #phone {
 }
 
 #contents #mainimage_wrapper {
-  max-width: 1800px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: black;
 }
-
 /* 탭메뉴 */
 /* 첫번째 탭 _ 모집중인 과정 */
 #contents #class_wrapper #class_tab {
@@ -269,5 +270,5 @@ footer a {
   color: white;
 }
 #footerSns {
-  padding-top: 12px;
+  padding: 24px 0;
 }
